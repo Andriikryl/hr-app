@@ -4,8 +4,10 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./index.css";
 import { Paths } from "./paths";
+import { Login } from "./pages/login";
+import { Register } from "./pages/register";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -14,11 +16,11 @@ const router = createBrowserRouter([
   },
   {
     path: Paths.login,
-    element: <h1>Login</h1>,
+    element: <Login />,
   },
   {
     path: Paths.register,
-    element: <h1>Register</h1>,
+    element: <Register />,
   },
 ]);
 
