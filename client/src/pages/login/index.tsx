@@ -1,10 +1,15 @@
 import React from "react";
 import { Layout } from "../../components/layout";
+import { Card, Form, Row } from "antd";
 
 export const Login = () => {
   return (
     <Layout>
-      <div>l0gin</div>
+      <Row align="middle" justify="center">
+        <Card title="Enter" style={{ width: "30rem" }}>
+          <Form onFinish={() => null}></Form>
+        </Card>
+      </Row>
     </Layout>
   );
 };
