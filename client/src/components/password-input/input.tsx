@@ -1,4 +1,3 @@
-import React from "react";
 import { Form, Input } from "antd";
 import { NamePath } from "antd/es/form/interface";
 
@@ -17,31 +16,33 @@ export const PasswordInput = ({ name, placeholder, dependencies }: Props) => {
       rules={[
         {
           required: true,
-          message: "required field",
+          message: "Обязательное поле",
         },
         ({ getFieldValue }) => ({
           validator(_, value) {
             if (!value) {
               return Promise.resolve();
             }
+
             if (name === "confirmPassword") {
-              if (value || getFieldValue("password") === value) {
+              if (!value || getFieldValue("password") === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error("Passwors needs to be matche"));
+              return Promise.reject(new Error("Пароли должны совпадать"));
             } else {
               if (value.length < 6) {
                 return Promise.reject(
-                  new Error("Password needs to be at least 6 characters")
+                  new Error("Пароль должен быть длиньше 6-ти символов")
                 );
               }
+
               return Promise.resolve();
             }
           },
         }),
       ]}
     >
-      <Input.Password placeholder={placeholder} size="large"></Input.Password>
+      <Input.Password placeholder={placeholder} size="large" />
     </Form.Item>
   );
 };

@@ -7,14 +7,14 @@ type Props = {
   type?: string;
 };
 
-export const CustomInput = ({ name, placeholder, type = "text" }: Props) => {
+export const CustomInput = ({ type = "text", name, placeholder }: Props) => {
   return (
     <Form.Item
       name={name}
-      rules={[{ required: true, message: "required field" }]}
+      rules={[{ required: true, message: "Обязательное поле" }]}
       shouldUpdate={true}
     >
-      <Input placeholder="placeholder" type={type} size="large" />
+      <Input placeholder={placeholder} type={type} size="large" />
     </Form.Item>
   );
 };
