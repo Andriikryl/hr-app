@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Table } from "antd";
 import type { ColumnsType } from "antd/es/table";
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined } from "@ant-design/icons";
 import { CustomButton } from "../../components/custom-button";
 import { Employee } from "@prisma/client";
 import { Paths } from "../../paths";
@@ -13,17 +13,17 @@ import { useSelector } from "react-redux";
 
 const columns: ColumnsType<Employee> = [
   {
-    title: "Имя",
+    title: "Name",
     dataIndex: "firstName",
     key: "firstName",
   },
   {
-    title: "Возраст",
+    title: "Age",
     dataIndex: "age",
     key: "age",
   },
   {
-    title: "Адрес",
+    title: "Address",
     dataIndex: "address",
     key: "address",
   },
@@ -44,8 +44,12 @@ export const Employees = () => {
 
   return (
     <Layout>
-      <CustomButton type="primary" onClick={gotToAddUser} icon={ <PlusCircleOutlined /> }>
-        Добавить
+      <CustomButton
+        type="primary"
+        onClick={gotToAddUser}
+        icon={<PlusCircleOutlined />}
+      >
+        Add
       </CustomButton>
       <Table
         loading={isLoading}

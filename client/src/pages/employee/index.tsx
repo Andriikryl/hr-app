@@ -24,7 +24,7 @@ export const Employee = () => {
   const user = useSelector(selectUser);
 
   if (isLoading) {
-    return <span>Загрузка</span>;
+    return <span>Loading</span>;
   }
 
   if (!data) {
@@ -52,28 +52,28 @@ export const Employee = () => {
       if (maybeError) {
         setError(err.data.message);
       } else {
-        setError("Неизвестная ошибка");
+        setError("Unknown error");
       }
     }
   };
 
   return (
     <Layout>
-      <Descriptions title="Информация о сотруднике" bordered>
+      <Descriptions title="Employee information" bordered>
         <Descriptions.Item
-          label="Имя"
+          label="Name"
           span={3}
         >{`${data.firstName} ${data.lastName}`}</Descriptions.Item>
-        <Descriptions.Item label="Возраст" span={3}>
+        <Descriptions.Item label="Age" span={3}>
           {data.age}
         </Descriptions.Item>
-        <Descriptions.Item label="Адрес" span={3}>
+        <Descriptions.Item label="Address" span={3}>
           {data.address}
         </Descriptions.Item>
       </Descriptions>
       {user?.id === data.userId && (
         <>
-          <Divider orientation="left">Действия</Divider>
+          <Divider orientation="left">Actions</Divider>
           <Space>
             <Link to={`/employee/edit/${data.id}`}>
               <CustomButton
@@ -81,7 +81,7 @@ export const Employee = () => {
                 type="default"
                 icon={<EditOutlined />}
               >
-                Редактировать
+                Edit
               </CustomButton>
             </Link>
             <CustomButton
@@ -90,21 +90,21 @@ export const Employee = () => {
               onClick={showModal}
               icon={<DeleteOutlined />}
             >
-              Удалить
+              Delete
             </CustomButton>
           </Space>
         </>
       )}
       <ErrorMessage message={error} />
       <Modal
-        title="Подтвердите удаление"
+        title="Confirm deletion"
         open={isModalOpen}
         onOk={handleDeleteUser}
         onCancel={hideModal}
-        okText="Подтвердить"
-        cancelText="Отменить"
+        okText="Confirm"
+        cancelText="Cancel"
       >
-        Вы действительно хотите удалить сотрудника из таблицы?
+        Do you really want to remove an employee from the table?
       </Modal>
     </Layout>
   );

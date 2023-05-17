@@ -34,7 +34,7 @@ export const AddEmployee = () => {
       if (maybeError) {
         setError(err.data.message);
       } else {
-        setError("Неизвестная ошибка");
+        setError("Unknown error");
       }
     }
   };
@@ -44,9 +44,9 @@ export const AddEmployee = () => {
       <Row align="middle" justify="center">
         <EmployeeForm
           onFinish={handleAddEmployee}
-          title="Добавить сутрудника"
-          btnText="Добавить"
-          error={ error }
+          title="Add a candidate"
+          btnText="Add"
+          error={error}
         />
       </Row>
     </Layout>

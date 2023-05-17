@@ -1,8 +1,11 @@
 import { Employee } from "@prisma/client";
 import { Row } from "antd";
-import { useState } from 'react';
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEditEmployeeMutation, useGetEmployeeQuery } from "../../app/serivices/employees";
+import {
+  useEditEmployeeMutation,
+  useGetEmployeeQuery,
+} from "../../app/serivices/employees";
 import { EmployeeForm } from "../../components/employee-form";
 import { Layout } from "../../components/layout";
 import { Paths } from "../../paths";
@@ -16,14 +19,14 @@ export const EditEmployee = () => {
   const [editEmployee] = useEditEmployeeMutation();
 
   if (isLoading) {
-    return <span>Загрузка</span>
+    return <span>Загрузка</span>;
   }
 
   const handleEditUser = async (employee: Employee) => {
     try {
       const editedEmployee = {
         ...data,
-        ...employee
+        ...employee,
       };
 
       await editEmployee(editedEmployee).unwrap();
@@ -45,10 +48,10 @@ export const EditEmployee = () => {
       <Row align="middle" justify="center">
         <EmployeeForm
           onFinish={handleEditUser}
-          title="Редактировать сотрудника"
+          title="Edit Employee"
           employee={data}
-          btnText="Редактировать"
-          error={ error }
+          btnText="Edit"
+          error={error}
         />
       </Row>
     </Layout>

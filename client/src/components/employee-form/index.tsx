@@ -14,20 +14,20 @@ type Props<T> = {
 
 export const EmployeeForm = ({
   onFinish,
-  title,
   employee,
   btnText,
   error,
 }: Props<Employee>) => {
   return (
-    <Card title={title} style={{ width: "30rem" }}>
+    <Card style={{ width: "30rem" }} className="Box">
+      <h1 className="employee-title">Add a candidate</h1>
       <Form name="add-employee" onFinish={onFinish} initialValues={employee}>
-        <CustomInput type="text" name="firstName" placeholder="Имя" />
-        <CustomInput name="lastName" placeholder="Фамилия" />
-        <CustomInput type="number" name="age" placeholder="Возраст" />
-        <CustomInput name="address" placeholder="Адрес" />
+        <CustomInput type="text" name="firstName" placeholder="Name" />
+        <CustomInput name="lastName" placeholder="Sername" />
+        <CustomInput type="number" name="age" placeholder="Age" />
+        <CustomInput name="address" placeholder="Address:" />
         <Space direction="vertical" size="large">
-          <ErrorMessage message={ error } />
+          <ErrorMessage message={error} />
           <CustomButton htmlType="submit">{btnText}</CustomButton>
         </Space>
       </Form>

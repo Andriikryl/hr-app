@@ -38,18 +38,18 @@ export const Header = () => {
           icon={<LogoutOutlined />}
           onClick={onLogoutClick}
         >
-          Выйти
+          Exit
         </CustomButton>
       ) : (
         <Space>
           <Link to="/register">
             <CustomButton type="ghost" icon={<UserOutlined />}>
-              Зарегистрироваться
+              Sign up
             </CustomButton>
           </Link>
           <Link to="/login">
             <CustomButton type="ghost" icon={<LoginOutlined />}>
-              Войти
+              Enter
             </CustomButton>
           </Link>
         </Space>

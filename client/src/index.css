@@ -29,3 +29,19 @@ a {
 input{
   background-color: hsla(0, 0%, 100%, 0) !important;
 }
+
+.Box{
+  background-color: hsla(45, 20%, 96%, 0.177);
+  backdrop-filter: blur(5px);
+  padding: 50px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 
+  0 2px 2px rgba(0,0,0,0.12), 
+  0 4px 4px rgba(0,0,0,0.12), 
+  0 8px 8px rgba(0,0,0,0.12),
+  0 16px 16px rgba(0,0,0,0.12);
+}
+
+.employee-title{
+  font-size: clamp(20px, 5vw + 2rem, 40px);
+  padding-block-end: 20px;
+}
