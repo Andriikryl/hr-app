@@ -1,49 +1,41 @@
 import React from "react";
-import { Button, Form } from "antd";
-import FormItem from "antd/es/form/FormItem";
-import { type } from "os";
+import { Form, Button } from "antd";
 
 type Props = {
   children: React.ReactNode;
   htmlType?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
-  type?:
-    | "link"
-    | "text"
-    | "ghost"
-    | "default"
-    | "primary"
-    | "dashed"
-    | undefined;
+  type?: "primary" | "link" | "text" | "ghost" | "default" | "dashed";
   danger?: boolean;
   loading?: boolean;
-  shape?: "default" | "circle" | "round" | undefined;
+  shape?: "circle" | "default" | "round" | undefined;
   icon?: React.ReactNode;
 };
 
 export const CustomButton = ({
   children,
-  htmlType,
   type,
   danger,
   loading,
-  shape,
-  icon,
+  htmlType = 'button',
   onClick,
+  shape,
+  icon
 }: Props) => {
   return (
-    <FormItem>
+    <Form.Item>
       <Button
-        htmlType="button"
         type={type}
+        htmlType={htmlType}
         danger={danger}
         loading={loading}
-        shape={shape}
-        icon={icon}
-        onClick={onClick}
+        size="large"
+        shape={ shape }
+        onClick={ onClick }
+        icon={ icon }
       >
         {children}
       </Button>
-    </FormItem>
+    </Form.Item>
   );
 };

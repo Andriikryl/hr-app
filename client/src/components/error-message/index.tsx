@@ -1,4 +1,5 @@
 import { Alert } from "antd";
+import React from "react";
 
 type Props = {
   message?: string;
