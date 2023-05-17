@@ -4,7 +4,7 @@ import {
   LogoutOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Layout, Space, Typography } from "antd";
+import { Layout, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout, selectUser } from "../../features/auth/authSlice";
@@ -28,7 +28,7 @@ export const Header = () => {
         <TeamOutlined className={style.teamIcon} />
         <Link to="/">
           <CustomButton type="ghost">
-            <Typography.Title level={1}>Сотрудники</Typography.Title>
+            <h1 className={style.headerTitle}>hr-book</h1>
           </CustomButton>
         </Link>
       </Space>

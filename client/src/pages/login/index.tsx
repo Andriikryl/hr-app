@@ -11,6 +11,7 @@ import { PasswordInput } from "../../components/password-input";
 import { selectUser } from "../../features/auth/authSlice";
 import { Paths } from "../../paths";
 import { isErrorWithMessage } from "../../utils/is-error-with-message";
+import styles from "./index.module.css";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -41,28 +42,32 @@ export const Login = () => {
   };
 
   return (
-    <Layout>
-      <Row align="middle" justify="center">
-        <Card title="Войдите" style={{ width: "30rem" }}>
-          <Form onFinish={login}>
-            <CustomInput type="email" name="email" placeholder="Email" />
-            <PasswordInput name="password" placeholder="Пароль" />
-            <CustomButton
-              type="primary"
-              htmlType="submit"
-              loading={loginUserResult.isLoading}
-            >
-              Войти
-            </CustomButton>
-          </Form>
-          <Space direction="vertical" size="large">
-            <Typography.Text>
-              Нет аккаунта? <Link to={Paths.register}>Зарегистрируйтесь</Link>
-            </Typography.Text>
-            <ErrorMessage message={error} />
-          </Space>
-        </Card>
-      </Row>
-    </Layout>
+    <div className={styles.shapeBox}>
+      <div className={styles.shape}></div>
+      <Layout>
+        <Row align="middle" justify="center">
+          <Card className={styles.loginBox} style={{ width: "30rem" }}>
+            <h2 className={styles.loginTitle}>Log in</h2>
+            <Form onFinish={login}>
+              <CustomInput type="email" name="email" placeholder="Email" />
+              <PasswordInput name="password" placeholder="password" />
+              <CustomButton
+                type="primary"
+                htmlType="submit"
+                loading={loginUserResult.isLoading}
+              >
+                Log in
+              </CustomButton>
+            </Form>
+            <Space direction="vertical" size="large">
+              <Typography.Text>
+                Do not have accaunt? <Link to={Paths.register}>Register</Link>
+              </Typography.Text>
+              <ErrorMessage message={error} />
+            </Space>
+          </Card>
+        </Row>
+      </Layout>
+    </div>
   );
 };
