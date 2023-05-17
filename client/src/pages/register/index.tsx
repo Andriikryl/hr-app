@@ -12,6 +12,7 @@ import { PasswordInput } from "../../components/password-input";
 import { selectUser } from "../../features/auth/authSlice";
 import { Paths } from "../../paths";
 import { isErrorWithMessage } from "../../utils/is-error-with-message";
+import styles from "./index.module.css";
 
 type RegisterData = Omit<User, "id"> & { confirmPassword: string };
 
@@ -44,26 +45,30 @@ export const Register = () => {
   };
 
   return (
-    <Layout>
-      <Row align="middle" justify="center">
-        <Card title="Зарегистрируйтесь" style={{ width: "30rem" }}>
-          <Form onFinish={register}>
-            <CustomInput type="text" name="name" placeholder="Имя" />
-            <CustomInput type="email" name="email" placeholder="Email" />
-            <PasswordInput name="password" placeholder="Пароль" />
-            <PasswordInput name="confirmPassword" placeholder="Пароль" />
-            <CustomButton type="primary" htmlType="submit">
-              Зарегистрироваться
-            </CustomButton>
-          </Form>
-          <Space direction="vertical" size="large">
-            <Typography.Text>
-              Уже зарегистрированы? <Link to={Paths.login}>Войдите</Link>
-            </Typography.Text>
-            <ErrorMessage message={error} />
-          </Space>
-        </Card>
-      </Row>
-    </Layout>
+    <div className={styles.shapeBox}>
+      <div className={styles.shape}></div>
+      <Layout>
+        <Row align="middle" justify="center">
+          <Card style={{ width: "30rem" }} className={styles.registerBox}>
+            <h1 className={styles.registerTitle}>Register</h1>
+            <Form onFinish={register}>
+              <CustomInput type="text" name="name" placeholder="Name" />
+              <CustomInput type="email" name="email" placeholder="Email" />
+              <PasswordInput name="password" placeholder="Password" />
+              <PasswordInput name="confirmPassword" placeholder="Password" />
+              <CustomButton type="primary" htmlType="submit">
+                Register
+              </CustomButton>
+            </Form>
+            <Space direction="vertical" size="large">
+              <Typography.Text>
+                Already registered? <Link to={Paths.login}>Log in</Link>
+              </Typography.Text>
+              <ErrorMessage message={error} />
+            </Space>
+          </Card>
+        </Row>
+      </Layout>
+    </div>
   );
 };

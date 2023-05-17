@@ -18,3 +18,14 @@ body {
 a {
   text-decoration: none;
 }
+
+.input{
+  background-color: hsl(355.5,77.6%,56.3%, .1) !important;
+  padding: 10px;
+  font-size: 20px;
+  color: #1d3557;
+}
+
+input{
+  background-color: hsla(0, 0%, 100%, 0) !important;
+}
